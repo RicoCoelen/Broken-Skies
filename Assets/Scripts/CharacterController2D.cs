@@ -6,11 +6,13 @@ public class CharacterController2D : MonoBehaviour
 {
     // rigidbody
     Rigidbody2D rb;
+    // animator
+    public Animator animator;
 
     // jump force
     Vector3 jump;
     public float jumpForce = 10.0f;
-    public bool isGrounded;
+    public bool isGrounded = false;
 
     // speed and movement of rigidbody
     public float speed = 40f;
@@ -54,13 +56,16 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // check space for jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             // jump
             rb.AddForce(jump * jumpForce, ForceMode2D.Force);
+        }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             // flip gravity if double tapped
-            if (ButtonCooler > 0 && ButtonCount == 1)
+            if (ButtonCooler < 0.5f && ButtonCount == 1)
             {
                 flipped = !flipped;
             }
@@ -106,5 +111,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        animator.SetFloat("Speed", Mathf.Abs(move));
+        animator.SetBool("IsGrounded", isGrounded);
     }
 }
