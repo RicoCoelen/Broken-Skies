@@ -33,8 +33,8 @@ public class CharacterController2D : MonoBehaviour
     int ButtonCount = 0;
 
     // attacking
-    bool isAttacking = false;
-    bool isShooting = false;
+    public bool isAttacking = false;
+    public bool isShooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -94,16 +94,6 @@ public class CharacterController2D : MonoBehaviour
             isShooting = false;
         }
 
-        // attacking
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            isAttacking = true;
-        }
-        else
-        {
-            isAttacking = false;
-        }
-
         // reset doubletaptimer
         if (ButtonCooler > 0)
         {
@@ -146,7 +136,5 @@ public class CharacterController2D : MonoBehaviour
         // set animatior vars
         animator.SetFloat("Speed", Mathf.Abs(move));
         animator.SetBool("IsGrounded", isGrounded);
-        animator.SetBool("IsShooting", isShooting);
-        animator.SetBool("IsAttacking", isAttacking);
     }
 }

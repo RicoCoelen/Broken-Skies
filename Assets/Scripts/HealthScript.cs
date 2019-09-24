@@ -8,11 +8,17 @@ public class HealthScript : MonoBehaviour
     public Slider healthBar;
     public float health = 100f;
 
+    // flash red
+    public float flashTime;
+    Color origionalColor;
+    public GameObject renderer;
+
     // Start is called before the first frame update
     void Start()
     {
         healthBar.value = health;
         healthBar.maxValue = health;
+        origionalColor = renderer.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class HealthScript : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        FlashRed();
         if (health <= 0f)
         {
             manager.GetComponent<GameManager>().GameOver();
@@ -48,5 +55,16 @@ public class HealthScript : MonoBehaviour
         {
             TakeDamage(100);
         }
+    }
+
+    void FlashRed()
+    {
+        renderer.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("ResetColor", flashTime);
+    }
+
+    void ResetColor()
+    {
+        renderer.GetComponent<SpriteRenderer>().color = origionalColor;
     }
 }
