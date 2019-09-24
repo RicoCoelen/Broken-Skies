@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class CharacterController2D : MonoBehaviour
     Rigidbody2D rb;
     // animator
     public Animator animator;
+    // camera
+    public GameObject camera;
+    public CinemachineVirtualCamera vc;
 
     // jump force
     Vector3 jump;
@@ -27,12 +31,16 @@ public class CharacterController2D : MonoBehaviour
     // double click vars
     public float ButtonCooler = 0.5f; // Half a second before reset
     int ButtonCount = 0;
-    
+
+    // attacking
+    bool isAttacking = false;
+    bool isShooting = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        vc = camera.GetComponent<CinemachineVirtualCamera>();
     }
 
     // Update is called once per frame
@@ -76,6 +84,26 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
+        // shooting
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isShooting = true;
+        }
+        else
+        {
+            isShooting = false;
+        }
+
+        // attacking
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+
         // reset doubletaptimer
         if (ButtonCooler > 0)
         {
@@ -102,16 +130,23 @@ public class CharacterController2D : MonoBehaviour
             rb.gravityScale = -1;
             jump = new Vector3(0.0f, -jumpForce, 0.0f);
             xRotation = 180;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
         }
         else
         {
             rb.gravityScale = 1;
             jump = new Vector3(0.0f, jumpForce, 0.0f);
             xRotation = 0;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.7f;
         }
 
+        // rotate player
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+
+        // set animatior vars
         animator.SetFloat("Speed", Mathf.Abs(move));
         animator.SetBool("IsGrounded", isGrounded);
+        animator.SetBool("IsShooting", isShooting);
+        animator.SetBool("IsAttacking", isAttacking);
     }
 }

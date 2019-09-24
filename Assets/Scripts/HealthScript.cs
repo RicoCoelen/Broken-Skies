@@ -33,4 +33,20 @@ public class HealthScript : MonoBehaviour
         }
         healthBar.value = Mathf.Clamp(health, 0, 100f);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Kill")
+        {
+            TakeDamage(100);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.gameObject.tag == "Kill")
+        {
+            TakeDamage(100);
+        }
+    }
 }
