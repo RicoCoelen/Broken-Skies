@@ -46,22 +46,8 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
         // get input from player
         move = Input.GetAxis("Horizontal");
-        
-        // move rigidbody accordingly
-        rb.velocity = new Vector2(speed * move, rb.velocity.y);
-
-        // check velocity and let player stay left after walking
-        if (rb.velocity.x > 0 && !facingRight || rb.velocity.x < 0 && facingRight)
-        {
-            facingRight = !facingRight;
-        }
 
         // check space for jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -92,6 +78,18 @@ public class CharacterController2D : MonoBehaviour
         else
         {
             isShooting = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // move rigidbody accordingly
+        rb.velocity = new Vector2(speed * move, rb.velocity.y);
+
+        // check velocity and let player stay left after walking
+        if (rb.velocity.x > 0 && !facingRight || rb.velocity.x < 0 && facingRight)
+        {
+            facingRight = !facingRight;
         }
 
         // reset doubletaptimer

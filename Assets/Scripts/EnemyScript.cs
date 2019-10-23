@@ -9,27 +9,42 @@ public class EnemyScript : MonoBehaviour
     public float distance;
     public float knockBackForce;
     public GameObject player;
-    public Transform groundDetection;
+    public GameObject groundDetection;
+    public GameObject wallDetection;
 
     private Animator anim;
     private Rigidbody2D rb;
 
     // enemy rotation
-    bool facingRight = true;
+    public bool facingRight = true;
     public bool flipped = false;
     public bool death = false;
     float yRotation = 0;
     float xRotation = 0;
-    bool movingRight;
-    private float Range;
+
+    // checks
+    public bool isGrounded = false;
+    public bool isWalled = false;
 
     // flash red
     public float flashTime;
     Color origionalColor;
     public SpriteRenderer renderer;
 
-    
-    
+    // huidige status
+    private State cState;
+
+    // current enemy target
+    public GameObject currentTarget = null;
+
+    // State Types
+    public enum State
+    {
+        IDLE = 0,
+        PATROLLING = 1,
+        CHASING = 2,
+        FLEEING = 3
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,31 +52,99 @@ public class EnemyScript : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         origionalColor = renderer.color;
+
+        // always start idle
+        cState = State.IDLE;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // get range player and this object
-        Range = Vector2.Distance(transform.position, player.transform.position);
-       
-        // follow player if close
-        if (Range <= 15f)
+        // check state and handle accordingly
+        switch (cState)
         {
-            Vector2 velocity = new Vector2((transform.position.x - player.transform.position.x) * speed, 0);
-            rb.velocity = -velocity;
+            case State.IDLE:
+                EnemyIdle();
+                break;
+
+            case State.PATROLLING:
+                EnemyPatrolling();
+                break;
+
+            case State.CHASING:
+                EnemyChasing();
+                break;
+
+            case State.FLEEING:
+                EnemyFleeing();
+                break;
+
+            default:
+                cState = State.IDLE;
+                break;
+        }
+
+        FlipCorrection();
+    }
+
+    void EnemyFleeing()
+    {
+
+        if (currentTarget == null)
+        {
+            cState = State.PATROLLING;
         }
         else
         {
-            // just walk left to right
-            if (movingRight == true)
+            // move current rigidbody to tracked player
+            Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
+            rb.MovePosition(transform.position + -direction * speed * Time.deltaTime);
+        }
+    }
+
+    void EnemyIdle()
+    {
+        // todo but just stand still
+        cState = State.PATROLLING;
+    }
+
+    void EnemyPatrolling()
+    {
+        if (currentTarget != null)
+        {
+            cState = State.CHASING;
+        }
+        else
+        {
+            if (isGrounded == false || isWalled == true)
             {
-                transform.Translate(Vector2.right * speed * Time.deltaTime);
+                speed *= -1;
+                facingRight = !facingRight;
             }
-            else
-            {
-                transform.Translate(Vector2.left * speed * Time.deltaTime);
-            }
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
+    }
+
+    void EnemyChasing()
+    {
+        if (currentTarget == null)
+        {
+            cState = State.PATROLLING;
+        }
+        else
+        {
+            // move current rigidbody to tracked player
+            Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
+            rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
+        }
+    }
+
+    private void FlipCorrection()
+    {
+        // check velocity and let enemy stay left after walking
+        if (rb.velocity.x > 0 && !facingRight || rb.velocity.x < 0 && facingRight)
+        {
+            facingRight = !facingRight;
         }
 
         // rotate x axis
@@ -112,13 +195,13 @@ public class EnemyScript : MonoBehaviour
         //healthBar.value = Mathf.Clamp(health, 0, 100f);
     }
 
-    void FlashRed()
+    private void FlashRed()
     {
         renderer.color = Color.red;
         Invoke("ResetColor", flashTime);
     }
 
-    void ResetColor()
+    private void ResetColor()
     {
         renderer.color = origionalColor;
     }

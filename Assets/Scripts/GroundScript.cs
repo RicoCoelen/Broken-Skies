@@ -16,12 +16,17 @@ public class GroundScript : MonoBehaviour
     {
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Player.GetComponent<CharacterController2D>().isGrounded = true;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Player.GetComponent<CharacterController2D>().isGrounded = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         Player.GetComponent<CharacterController2D>().isGrounded = false;
     }
