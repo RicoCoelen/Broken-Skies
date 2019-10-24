@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GroundScript.cs" />
     <Compile Include="Assets\Scripts\HealthScript.cs" />
+    <Compile Include="Assets\Scripts\Rotator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/callr/Desktop/GM - Rico Coelen/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

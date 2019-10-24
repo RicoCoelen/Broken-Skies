@@ -20,6 +20,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void PlayNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     public void GameOver()
     {
         deathPanel.SetActive(true);
