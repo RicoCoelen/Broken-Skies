@@ -6,7 +6,9 @@ public class BulletScript : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
-    public float bulletDamage = 50f;
+    public float minDamage;
+    public float maxDamage;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class BulletScript : MonoBehaviour
         EnemyScript Enemy = collision.GetComponent<EnemyScript>();
         if (Enemy != null)
         {
-            Enemy.TakeDamage(bulletDamage);
+            Enemy.TakeDamage(Random.Range(minDamage, maxDamage));
         }
         Destroy(gameObject);
     }

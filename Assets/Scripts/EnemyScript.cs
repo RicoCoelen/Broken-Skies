@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour
 {
     public float health = 100f;
@@ -37,6 +37,8 @@ public class EnemyScript : MonoBehaviour
     // current enemy target
     public GameObject currentTarget = null;
 
+    public Slider healthBar;
+
     // State Types
     public enum State
     {
@@ -49,6 +51,9 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.value = health;
+        healthBar.maxValue = health;
+
         anim = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         origionalColor = renderer.color;
@@ -181,6 +186,8 @@ public class EnemyScript : MonoBehaviour
 
         // remove health
         health -= amount;
+
+        healthBar.value = Mathf.Clamp(health, 0, 100f);
 
         // flash red
         FlashRed();
