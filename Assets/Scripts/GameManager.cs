@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject deathPanel;
-    private bool gamePaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +21,14 @@ public class GameManager : MonoBehaviour
 
     public void PlayNext()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void BackMenu()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
@@ -38,25 +39,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         deathPanel.SetActive(true);
-        ToggleTime();
-    }
-
-    public void ToggleTime()
-    {
-        gamePaused = !gamePaused;
-        if (gamePaused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+        Time.timeScale = 0;
     }
     
     public void Retry()
     {
-        ToggleTime();
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

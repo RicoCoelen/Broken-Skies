@@ -6,6 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     public float health = 100f;
     public float speed;
+    public float patrolSpeed;
     public float distance;
     public float knockBackForce;
     public GameObject player;
@@ -22,9 +23,10 @@ public class EnemyScript : MonoBehaviour
     float yRotation = 0;
     float xRotation = 0;
 
-    // checks
+    // checks from somewhere else
     public bool isGrounded = false;
     public bool isWalled = false;
+    public GameObject currentTarget = null;
 
     // flash red
     public float flashTime;
@@ -32,10 +34,7 @@ public class EnemyScript : MonoBehaviour
     public SpriteRenderer renderer;
 
     // huidige status
-    private State cState;
-
-    // current enemy target
-    public GameObject currentTarget = null;
+    public State cState;
 
     public Slider healthBar;
 
@@ -124,9 +123,11 @@ public class EnemyScript : MonoBehaviour
             if (isGrounded == false || isWalled == true)
             {
                 speed *= -1;
+                patrolSpeed *= -1;
                 facingRight = !facingRight;
             }
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+
+            rb.velocity = new Vector2(patrolSpeed, rb.velocity.y);
         }
     }
 
@@ -138,9 +139,29 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
+            rb.velocity = Vector2.zero;
             // move current rigidbody to tracked player
             Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
-            rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
+            direction.y = 0;
+
+            if (currentTarget.transform.position.x > transform.position.x)
+            {
+                if (isGrounded == true)
+                {
+                    rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
+                }
+                facingRight = true;
+                speed = Mathf.Abs(speed);
+            }
+            else
+            {
+                if (isGrounded == true)
+                {
+                    rb.MovePosition(transform.position + -direction * speed * Time.deltaTime);
+                }
+                facingRight = false;
+                speed = -Mathf.Abs(speed);
+            }
         }
     }
 
@@ -197,9 +218,6 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // maybe show health above head?
-        //healthBar.value = Mathf.Clamp(health, 0, 100f);
     }
 
     private void FlashRed()

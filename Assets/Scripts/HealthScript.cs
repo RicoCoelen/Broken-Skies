@@ -34,11 +34,12 @@ public class HealthScript : MonoBehaviour
     {
         health -= amount;
         FlashRed();
+        healthBar.value = Mathf.Clamp(health, 0, 100f);
+
         if (health <= 0f)
         {
             manager.GetComponent<GameManager>().GameOver();
         }
-        healthBar.value = Mathf.Clamp(health, 0, 100f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
