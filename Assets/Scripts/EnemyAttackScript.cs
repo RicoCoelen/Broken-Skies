@@ -4,31 +4,26 @@ using UnityEngine;
 
 public class EnemyAttackScript : MonoBehaviour
 {
-
-    private float timeToAttack;
-    public float cooldownAttack;
-
-    public Transform attackPos;
-    public float attackRange;
-
-    //
-    public LayerMask Player;
-    public GameObject PlayerGO;
-
-    // attack
-    public float DamageStab;
-    public Animator anim;
-
     // detection
     public float DetectionRange;
     public GameObject currentTarget;
+    public LayerMask Player;
+    public GameObject PlayerGO;
+    Vector3 direction;
 
+    // attack
+    public Transform attackPos;
+    public float attackRange;
+    public float DamageStab;
+    public Animator anim;
+    private float timeToAttack;
+    public float cooldownAttack;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // shoot
+    public float shootRange;
+    public GameObject projectile;
+    private float timeToShoot;
+    public float cooldownShoot;
 
     // Update is called once per frame
     void Update()
@@ -42,7 +37,7 @@ public class EnemyAttackScript : MonoBehaviour
         {
             anim.SetBool("EnemyAttack", false);
             timeToAttack -= Time.deltaTime;
-        }
+        }        
 
         // check for shoot and player
         checkForPlayer();
@@ -84,6 +79,52 @@ public class EnemyAttackScript : MonoBehaviour
             currentTarget = null;
             GetComponentInParent<EnemyScript>().currentTarget = null;
         }
+        
+        // check if player is left or right in sights
+        if (GetComponentInParent<EnemyScript>().facingRight == true)
+        {
+             direction = Vector2.right;
+            direction.z = 0;
+        }
+        else
+        {
+            direction = Vector2.left;
+            direction.z = 0;
+        }
+
+        // raycast to ground
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, shootRange, Player);
+        
+        if (hit.collider == true)
+        {
+            GetComponentInParent<EnemyScript>().currentTarget = PlayerGO;
+            TryShoot();
+        }
+    }
+
+    private void TryShoot()
+    {
+        float r = Random.Range(1,11);
+
+        if(r < 2)
+        {
+            // melee attack
+            if (timeToShoot <= 0)
+            {
+                anim.SetBool("EnemyShoot", true);
+                Instantiate(projectile, transform.position, transform.rotation);
+                timeToShoot = cooldownShoot;
+            }
+            else
+            {
+                anim.SetBool("EnemyShoot", false);
+                timeToShoot -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            anim.SetBool("EnemyShoot", false);
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -96,5 +137,6 @@ public class EnemyAttackScript : MonoBehaviour
         Gizmos.DrawWireSphere(transform.parent.position, DetectionRange);
 
         // shoot raycast
+        Gizmos.DrawLine(transform.position, transform.position +  new Vector3(direction.x * shootRange, 0, 0));
     }
 }

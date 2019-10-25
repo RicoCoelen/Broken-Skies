@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\ElevatorScript.cs" />
     <Compile Include="Assets\Scripts\EnemyAttackScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyBulletScript.cs" />
     <Compile Include="Assets\Scripts\EnemyGroundScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\EnemyWallScript.cs" />

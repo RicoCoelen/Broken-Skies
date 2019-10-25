@@ -7,6 +7,7 @@ TagManager:
   - Kill
   - Enemies
   - Level
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Player
   - Enemy
   - Level
-  - 
-  - 
+  - Bullet
+  - EnemyBullet
   - 
   - 
   - 
