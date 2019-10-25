@@ -62,6 +62,7 @@ public class CharacterController2D : MonoBehaviour
             if (ButtonCooler < 0.5f && ButtonCount == 1)
             {
                 flipped = !flipped;
+                rb.velocity = Vector2.zero;
             }
             else
             {
