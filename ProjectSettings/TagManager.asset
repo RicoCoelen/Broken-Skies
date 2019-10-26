@@ -8,6 +8,7 @@ TagManager:
   - Enemies
   - Level
   - Bullet
+  - Elevator
   layers:
   - Default
   - TransparentFX

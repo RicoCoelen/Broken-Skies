@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303af30731d9457439905de38efd6df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionRange: 6.85
+  DetectionRange: 12.46
   currentTarget: {fileID: 0}
   Player:
     serializedVersion: 2
@@ -534,10 +534,10 @@ MonoBehaviour:
   DamageStab: 20
   anim: {fileID: 3526349947265625998}
   cooldownAttack: 1.5
-  shootRange: 45.5
+  shootRange: 30
   projectile: {fileID: 6145094756328667943, guid: 77f7ab78e39d4b74bba915cae80567b5,
     type: 3}
-  cooldownShoot: 0.1
+  cooldownShoot: 0.15
 --- !u!1 &3526349947265625993
 GameObject:
   m_ObjectHideFlags: 0

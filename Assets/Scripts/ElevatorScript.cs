@@ -16,10 +16,12 @@ public class ElevatorScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Choose the next destination point when the agent gets
         this.transform.position = Vector3.MoveTowards(transform.position, currentdestination, maxDistance);
+
+
 
         // close to the current one.
         if (Vector3.Distance(transform.position, currentdestination) < maxDistance)
@@ -38,6 +40,16 @@ public class ElevatorScript : MonoBehaviour
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
         destPoint = (destPoint + 1) % points.Length;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.parent = transform;
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.parent = null;
     }
 
 }
