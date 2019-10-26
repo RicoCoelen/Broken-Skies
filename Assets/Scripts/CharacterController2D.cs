@@ -75,6 +75,7 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isShooting = true;
+            vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(1);
         }
         else
         {
@@ -107,10 +108,14 @@ public class CharacterController2D : MonoBehaviour
         if (facingRight == true)
         {
             yRotation = 0;
+            //vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.5f;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
         }
         else
         {
             yRotation = 180;
+            //vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.5f;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
         }
 
         // flip gravity 

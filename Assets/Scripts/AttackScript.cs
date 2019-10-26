@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class AttackScript : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class AttackScript : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
 
+    public CinemachineVirtualCamera vc;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +38,7 @@ public class AttackScript : MonoBehaviour
                 Debug.Log(enemiesToDamage);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
+                    vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
                     enemiesToDamage[i].GetComponent<EnemyScript>().TakeDamage(DamageStab);
                 }         
             }
@@ -52,6 +56,7 @@ public class AttackScript : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 anim.SetBool("IsShooting", true);
+                vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
                 Instantiate(projectile, firePoint.position, firePoint.rotation);
             }
             timeToShoot = cooldownShoot;
