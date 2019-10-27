@@ -531,7 +531,7 @@ MonoBehaviour:
   PlayerGO: {fileID: 0}
   attackPos: {fileID: 3526349947036556610}
   attackRange: 0.52
-  DamageStab: 20
+  DamageStab: 10
   anim: {fileID: 3526349947265625998}
   cooldownAttack: 1.5
   shootRange: 30

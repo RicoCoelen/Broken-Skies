@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AttackScript
+    - BossScript
     - BulletScript
     - CharacterController2D
     - CinemachineCameraShaker
@@ -32,6 +33,7 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
@@ -85,11 +87,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9894}
     - Class: 114
-      Script: {instanceID: 10786}
+      Script: {instanceID: 10790}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11462}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -154,60 +156,66 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9894}
     - Class: 114
-      Script: {instanceID: 10118}
+      Script: {instanceID: 10076}
     - Class: 114
-      Script: {instanceID: 10150}
+      Script: {instanceID: 10120}
     - Class: 114
-      Script: {instanceID: 10256}
+      Script: {instanceID: 10152}
     - Class: 114
-      Script: {instanceID: 10278}
+      Script: {instanceID: 10258}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10280}
     - Class: 114
-      Script: {instanceID: 10340}
+      Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10382}
+      Script: {instanceID: 10342}
     - Class: 114
-      Script: {instanceID: 10532}
+      Script: {instanceID: 10384}
     - Class: 114
-      Script: {instanceID: 10560}
+      Script: {instanceID: 10528}
     - Class: 114
-      Script: {instanceID: 10666}
+      Script: {instanceID: 10536}
     - Class: 114
-      Script: {instanceID: 10786}
+      Script: {instanceID: 10564}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 10670}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 10790}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 10838}
     - Class: 114
-      Script: {instanceID: 11410}
+      Script: {instanceID: 11130}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11692}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 11760}
+      Script: {instanceID: 11470}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11698}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11740}
     - Class: 114
-      Script: {instanceID: 11828}
+      Script: {instanceID: 11766}
     - Class: 114
-      Script: {instanceID: 39460}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 66216}
+      Script: {instanceID: 11806}
+    - Class: 114
+      Script: {instanceID: 11834}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -253,17 +261,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9894}
     - Class: 114
-      Script: {instanceID: 10340}
+      Script: {instanceID: 10342}
     - Class: 114
-      Script: {instanceID: 10786}
+      Script: {instanceID: 10790}
     - Class: 114
-      Script: {instanceID: 11002}
+      Script: {instanceID: 11008}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 11760}
+      Script: {instanceID: 11766}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -437,6 +445,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossScript
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -569,7 +583,13 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: 42a38562934713415f83c244a594e6bf
+      Hash: 4a7b6704eef9dd47f4e1ac4ab6e31a1f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CinemachineCameraShaker
+  - hash:
+      serializedVersion: 2
+      Hash: cbce4d5723a5f500f0661749f79169f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AttackScript
@@ -587,7 +607,7 @@ ScriptsOnlyBuild:
     className: CinemachineTriggerAction
   - hash:
       serializedVersion: 2
-      Hash: 3545709d80b9a7182dd2950ff1a282e9
+      Hash: 718140523feb66359e8db60c2655c846
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAttackScript
@@ -663,6 +683,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineTargetGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TouchScript
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -999,18 +1025,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TouchScript
-  - hash:
-      serializedVersion: 2
-      Hash: 4a7b6704eef9dd47f4e1ac4ab6e31a1f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CinemachineCameraShaker
   platform: 19
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
