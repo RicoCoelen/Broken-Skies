@@ -24,6 +24,7 @@ public class EnemyAttackScript : MonoBehaviour
     public GameObject projectile;
     private float timeToShoot;
     public float cooldownShoot;
+    public GameObject muzzleFlash;
 
     // Update is called once per frame
     void Update()
@@ -113,6 +114,9 @@ public class EnemyAttackScript : MonoBehaviour
             {
                 anim.SetBool("EnemyShoot", true);
                 Instantiate(projectile, transform.position, transform.rotation);
+                GameObject temp = Instantiate(muzzleFlash, transform.position, transform.rotation);
+                temp.transform.parent = transform.parent;
+                temp.transform.Rotate(0, 90, 0);
                 timeToShoot = cooldownShoot;
             }
             else

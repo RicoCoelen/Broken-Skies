@@ -538,6 +538,8 @@ MonoBehaviour:
   projectile: {fileID: 6145094756328667943, guid: 77f7ab78e39d4b74bba915cae80567b5,
     type: 3}
   cooldownShoot: 0.15
+  muzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
 --- !u!1 &3526349947265625993
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class AttackScript : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
 
+    public GameObject muzzleflash;
+
     public CinemachineVirtualCamera vc;
 
     // Update is called once per frame
@@ -58,6 +60,9 @@ public class AttackScript : MonoBehaviour
                 anim.SetBool("IsShooting", true);
                 vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
                 Instantiate(projectile, firePoint.position, firePoint.rotation);
+                GameObject temp = Instantiate(muzzleflash, firePoint.position, firePoint.rotation);
+                temp.transform.Rotate(0, 90, 0);
+                temp.transform.parent = transform.parent;
             }
             timeToShoot = cooldownShoot;
         }
