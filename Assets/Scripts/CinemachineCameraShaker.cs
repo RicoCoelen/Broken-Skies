@@ -21,8 +21,8 @@ public class CinemachineCameraShaker : MonoBehaviour
     protected Vector3 _initialPosition;
     protected Quaternion _initialRotation;
 
-    protected Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
-    protected Cinemachine.CinemachineVirtualCamera _virtualCamera;
+    private Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
+    private Cinemachine.CinemachineVirtualCamera _virtualCamera;
 
     /// <summary>
     /// On awake we grab our components

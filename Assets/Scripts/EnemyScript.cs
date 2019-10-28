@@ -32,6 +32,7 @@ public class EnemyScript : MonoBehaviour
     public float flashTime;
     Color origionalColor;
     public SpriteRenderer renderer;
+    public GameObject effect;
 
     // huidige status
     public State cState;
@@ -96,6 +97,7 @@ public class EnemyScript : MonoBehaviour
 
         if (currentTarget == null)
         {
+            anim.SetBool("isRunning", false);
             cState = State.PATROLLING;
         }
         else
@@ -103,6 +105,7 @@ public class EnemyScript : MonoBehaviour
             // move current rigidbody to tracked player
             Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
             rb.MovePosition(transform.position + -direction * speed * Time.deltaTime);
+            anim.SetBool("isRunning", true);
         }
     }
 
@@ -117,6 +120,7 @@ public class EnemyScript : MonoBehaviour
         if (currentTarget != null)
         {
             cState = State.CHASING;
+            anim.SetBool("isWalking", false);
         }
         else
         {
@@ -126,7 +130,7 @@ public class EnemyScript : MonoBehaviour
                 patrolSpeed *= -1;
                 facingRight = !facingRight;
             }
-
+            anim.SetBool("isWalking", true);
             rb.velocity = new Vector2(patrolSpeed, rb.velocity.y);
         }
     }
@@ -136,6 +140,7 @@ public class EnemyScript : MonoBehaviour
         if (currentTarget == null)
         {
             cState = State.PATROLLING;
+            anim.SetBool("isRunning", false);
         }
         else
         {
@@ -162,6 +167,7 @@ public class EnemyScript : MonoBehaviour
                 facingRight = false;
                 speed = -Mathf.Abs(speed);
             }
+            anim.SetBool("isRunning", true);
         }
     }
 
@@ -216,6 +222,7 @@ public class EnemyScript : MonoBehaviour
         // if no health die
         if (health <= 0f)
         {
+            Instantiate(effect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -229,5 +236,21 @@ public class EnemyScript : MonoBehaviour
     private void ResetColor()
     {
         renderer.color = origionalColor;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Kill")
+        {
+            TakeDamage(100);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.gameObject.tag == "Kill")
+        {
+            TakeDamage(100);
+        }
     }
 }

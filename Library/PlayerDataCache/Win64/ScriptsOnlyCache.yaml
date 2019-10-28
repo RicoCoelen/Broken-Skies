@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - AttackScript
     - BossScript
     - BulletScript
+    - ButtonScript
     - CharacterController2D
     - CinemachineCameraShaker
     - ElevatorScript
@@ -21,7 +22,10 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineBasicMultiChannelPerlin
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineFramingTransposer
+    - Cinemachine.CinemachineGroupComposer
     - Cinemachine.CinemachinePipeline
+    - Cinemachine.CinemachineTargetGroup
+    - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
     Unity.2D.Tilemap.Editor.dll:
@@ -30,15 +34,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -81,17 +76,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9662}
+      Script: {instanceID: 9664}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9894}
+      Script: {instanceID: 9896}
     - Class: 114
-      Script: {instanceID: 10790}
+      Script: {instanceID: 10794}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11462}
+      Script: {instanceID: 11466}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -147,66 +142,76 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9662}
-    - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9664}
     - Class: 114
       Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9894}
+      Script: {instanceID: 9848}
     - Class: 114
-      Script: {instanceID: 10076}
+      Script: {instanceID: 9896}
     - Class: 114
-      Script: {instanceID: 10120}
+      Script: {instanceID: 10078}
     - Class: 114
-      Script: {instanceID: 10152}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10258}
+      Script: {instanceID: 10154}
     - Class: 114
-      Script: {instanceID: 10280}
+      Script: {instanceID: 10174}
     - Class: 114
-      Script: {instanceID: 10300}
+      Script: {instanceID: 10262}
     - Class: 114
-      Script: {instanceID: 10342}
+      Script: {instanceID: 10284}
     - Class: 114
-      Script: {instanceID: 10384}
+      Script: {instanceID: 10304}
     - Class: 114
-      Script: {instanceID: 10528}
+      Script: {instanceID: 10346}
     - Class: 114
-      Script: {instanceID: 10536}
+      Script: {instanceID: 10388}
     - Class: 114
-      Script: {instanceID: 10564}
+      Script: {instanceID: 10532}
     - Class: 114
-      Script: {instanceID: 10670}
+      Script: {instanceID: 10540}
     - Class: 114
-      Script: {instanceID: 10790}
+      Script: {instanceID: 10568}
     - Class: 114
-      Script: {instanceID: 10838}
+      Script: {instanceID: 10674}
     - Class: 114
-      Script: {instanceID: 11130}
+      Script: {instanceID: 10794}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 10826}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 10842}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 10918}
     - Class: 114
-      Script: {instanceID: 11462}
+      Script: {instanceID: 10984}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11134}
     - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11702}
+    - Class: 114
+      Script: {instanceID: 11744}
+    - Class: 114
+      Script: {instanceID: 11770}
+    - Class: 114
+      Script: {instanceID: 11786}
+    - Class: 114
+      Script: {instanceID: 11810}
+    - Class: 114
+      Script: {instanceID: 11838}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -255,23 +260,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9662}
+      Script: {instanceID: 9664}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9894}
+      Script: {instanceID: 9896}
     - Class: 114
-      Script: {instanceID: 10342}
+      Script: {instanceID: 10346}
     - Class: 114
-      Script: {instanceID: 10790}
+      Script: {instanceID: 10794}
     - Class: 114
-      Script: {instanceID: 11008}
+      Script: {instanceID: 11012}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11364}
     - Class: 114
-      Script: {instanceID: 11462}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -287,6 +292,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossDoorScript
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -445,7 +456,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ed473025da648d24d5049a4e9590861e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BossScript
@@ -481,6 +492,12 @@ ScriptsOnlyBuild:
     className: HealthScript
   - hash:
       serializedVersion: 2
+      Hash: a9bba497e2d23532bd47c9f6acd4082b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonScript
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -499,7 +516,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 715397d5ca4f84767cbb2989161f8915
+      Hash: fab38bfd90353739aa97eaf271b04ade
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyScript
@@ -589,7 +606,7 @@ ScriptsOnlyBuild:
     className: CinemachineCameraShaker
   - hash:
       serializedVersion: 2
-      Hash: cbce4d5723a5f500f0661749f79169f2
+      Hash: ace41dc869c2549d8f1422bdc8f45ebc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AttackScript
@@ -883,7 +900,7 @@ ScriptsOnlyBuild:
     className: GameManager
   - hash:
       serializedVersion: 2
-      Hash: b8f34a99d7ca79aa30984933ed64edcc
+      Hash: 8b0ef5f6eef852d5955f5045cdf22b38
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CharacterController2D
@@ -1030,4 +1047,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/EndScene.unity
-  playerPath: C:/Users/callr/Desktop/Build/GM - Rico Coelen.exe
+  playerPath: C:/Users/callr/Desktop/Game/GM - Rico Coelen.exe

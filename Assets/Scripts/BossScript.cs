@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class BossScript : MonoBehaviour
 {
-
+    // health
     public Slider healthBar;
     public float startHealth = 10000f;
     public float health;
@@ -27,6 +28,17 @@ public class BossScript : MonoBehaviour
         STAGE2 = 3
     }
 
+    // cameras
+    public CinemachineVirtualCamera vc;
+    public CinemachineTargetGroup vct;
+
+    // player
+    public GameObject Player;
+
+    // doors
+    public bool runonce = false;
+    public GameObject closeDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +52,51 @@ public class BossScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        switch (cState)
+        {
+            case State.WAITING:
+                // do nothing
+                break;
+
+            case State.TRIGGERED:
+                BossTriggered();
+                break;
+
+            case State.STAGE1:
+                Stage1();
+                break;
+
+            case State.STAGE2:
+                Stage2();
+                break;
+
+            default:
+                cState = State.WAITING;
+                break;
+        }
     }
+
+    void BossTriggered()
+    {
+        vc.gameObject.SetActive(false);
+        vct.gameObject.SetActive(true);
+        closeDoor.gameObject.SetActive(true);
+    }
+
+    void Stage1()
+    {
+
+    }
+
+    void Stage2()
+    {
+
+    }
+
+
+
 
     public void TakeDamage(float amount)
     {
@@ -72,6 +125,18 @@ public class BossScript : MonoBehaviour
     private void ResetColor()
     {
         renderer.color = origionalColor;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (runonce == false)
+            {
+                cState = State.TRIGGERED;
+                runonce = true;
+            }
+        }
     }
 
 }

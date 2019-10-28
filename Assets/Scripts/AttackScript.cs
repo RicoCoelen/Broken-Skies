@@ -26,6 +26,7 @@ public class AttackScript : MonoBehaviour
     public GameObject muzzleflash;
 
     public CinemachineVirtualCamera vc;
+    public CinemachineVirtualCamera vct;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +41,14 @@ public class AttackScript : MonoBehaviour
                 Debug.Log(enemiesToDamage);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+                    if (vc.gameObject.activeSelf == true)
+                    {
+                        vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+                    }
+                    else
+                    {
+                        vct.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+                    }
                     enemiesToDamage[i].GetComponent<EnemyScript>().TakeDamage(DamageStab);
                 }         
             }
@@ -58,7 +66,16 @@ public class AttackScript : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 anim.SetBool("IsShooting", true);
-                vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+
+                if (vc.gameObject.activeSelf == true)
+                {
+                    vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+                }
+                else 
+                {
+                    vct.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+                }
+                
                 Instantiate(projectile, firePoint.position, firePoint.rotation);
                 GameObject temp = Instantiate(muzzleflash, firePoint.position, firePoint.rotation);
                 temp.transform.Rotate(0, 90, 0);

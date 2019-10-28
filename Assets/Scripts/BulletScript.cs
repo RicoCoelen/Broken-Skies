@@ -18,24 +18,31 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemies")
+        switch (collision.tag)
         {
-            EnemyScript Enemy = collision.GetComponent<EnemyScript>();
-            if (Enemy != null)
-            {
-                Enemy.TakeDamage(Random.Range(minDamage, maxDamage));
-            }
-            Destroy(gameObject);
-        }
-       
-        if(collision.tag == "Boss")
-        {
-            BossScript Boss = collision.GetComponent<BossScript>();
-            if (Boss != null)
-            {
-                Boss.TakeDamage(Random.Range(minDamage, maxDamage));
-            }
-            Destroy(gameObject);
+            case "Boss":
+                BossScript Boss = collision.GetComponent<BossScript>();
+                if (Boss != null)
+                {
+                    Boss.TakeDamage(Random.Range(minDamage, maxDamage));
+                }
+                Destroy(gameObject);
+                break;
+            case "Enemies":
+                EnemyScript Enemy = collision.GetComponent<EnemyScript>();
+                if (Enemy != null)
+                {
+                    Enemy.TakeDamage(Random.Range(minDamage, maxDamage));
+                }
+                Destroy(gameObject);
+                break;
+
+            case "Kill":
+                
+                break;
+            default:
+                Destroy(gameObject);
+                break;
         }
     }
 }

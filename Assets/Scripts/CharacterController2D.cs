@@ -12,11 +12,13 @@ public class CharacterController2D : MonoBehaviour
     // camera
     public GameObject camera;
     public CinemachineVirtualCamera vc;
+    public CinemachineTargetGroup vct;
 
     // jump force
     Vector3 jump;
     public float jumpForce = 10.0f;
     public bool isGrounded = false;
+    public bool canFlip = false;
 
     // speed and movement of rigidbody
     public float speed = 40f;
@@ -58,16 +60,20 @@ public class CharacterController2D : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // flip gravity if double tapped
-            if (ButtonCooler < 0.5f && ButtonCount == 1)
+            if (canFlip)
             {
-                flipped = !flipped;
-                rb.velocity = Vector2.zero;
-            }
-            else
-            {
-                ButtonCooler = 0.5f;
-                ButtonCount += 1;
+                // flip gravity if double tapped
+                if (ButtonCooler < 0.5f && ButtonCount == 1)
+                {
+                    flipped = !flipped;
+                    rb.velocity = Vector2.zero;
+                    canFlip = false;
+                }
+                else
+                {
+                    ButtonCooler = 0.5f;
+                    ButtonCount += 1;
+                }
             }
         }
 
@@ -75,7 +81,14 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isShooting = true;
-            vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(1);
+            if (vc.gameObject.activeSelf == true)
+            {
+                vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+            }
+            else
+            {
+                vct.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
+            }
         }
         else
         {
@@ -108,14 +121,10 @@ public class CharacterController2D : MonoBehaviour
         if (facingRight == true)
         {
             yRotation = 0;
-            //vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.5f;
-            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
         }
         else
         {
             yRotation = 180;
-            //vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.5f;
-            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
         }
 
         // flip gravity 
@@ -124,14 +133,14 @@ public class CharacterController2D : MonoBehaviour
             rb.gravityScale = -1;
             jump = new Vector3(0.0f, -jumpForce, 0.0f);
             xRotation = 180;
-            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.35f;
         }
         else
         {
             rb.gravityScale = 1;
             jump = new Vector3(0.0f, jumpForce, 0.0f);
             xRotation = 0;
-            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.7f;
+            vc.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.65f;
         }
 
         // rotate player
