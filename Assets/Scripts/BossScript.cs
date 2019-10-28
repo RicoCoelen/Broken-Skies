@@ -83,6 +83,7 @@ public class BossScript : MonoBehaviour
         vc.gameObject.SetActive(false);
         vct.gameObject.SetActive(true);
         closeDoor.gameObject.SetActive(true);
+        healthBar.transform.parent.gameObject.SetActive(true);
     }
 
     void Stage1()

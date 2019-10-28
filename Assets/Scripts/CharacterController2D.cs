@@ -81,14 +81,6 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isShooting = true;
-            if (vc.gameObject.activeSelf == true)
-            {
-                vc.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
-            }
-            else
-            {
-                vct.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
-            }
         }
         else
         {
