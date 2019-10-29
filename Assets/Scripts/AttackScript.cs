@@ -30,12 +30,12 @@ public class AttackScript : MonoBehaviour
     public CinemachineVirtualCamera vct;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // melee attack
         if (timeToAttack <= 0)
         {
-            if(Input.GetKey(KeyCode.Q))
+            if(Input.GetKey(KeyCode.Mouse1))
             {
                 anim.SetBool("IsAttacking", true);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, Enemies);
@@ -65,7 +65,7 @@ public class AttackScript : MonoBehaviour
         // shooting
         if (timeToShoot <= 0)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
                 anim.SetBool("IsShooting", true);
 
