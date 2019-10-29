@@ -18,18 +18,27 @@ public class GroundScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player.GetComponent<CharacterController2D>().isGrounded = true;
-        Player.GetComponent<CharacterController2D>().canFlip = true;
+        if (collision.gameObject.tag != "Bullet")
+        {
+            Player.GetComponent<CharacterController2D>().isGrounded = true;
+            Player.GetComponent<CharacterController2D>().canFlip = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Player.GetComponent<CharacterController2D>().isGrounded = true;
-        Player.GetComponent<CharacterController2D>().canFlip = true;
+        if (collision.gameObject.tag != "Bullet")
+        {
+            Player.GetComponent<CharacterController2D>().isGrounded = true;
+            Player.GetComponent<CharacterController2D>().canFlip = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Player.GetComponent<CharacterController2D>().isGrounded = false;
+        if (collision.gameObject.tag != "Bullet")
+        {
+            Player.GetComponent<CharacterController2D>().isGrounded = false;
+        }
     }
 }

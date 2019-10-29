@@ -18,12 +18,19 @@ public class EnemyBulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
-        HealthScript Player = collision.GetComponent<HealthScript>();
-        if (Player != null)
+        if (collision.gameObject.tag == "Kill")
         {
-            Player.TakeDamage(Random.Range(minDamage, maxDamage));
+            // nothing
         }
-        Destroy(gameObject);
+        else
+        {
+            Debug.Log(collision.name);
+            HealthScript Player = collision.GetComponent<HealthScript>();
+            if (Player != null)
+            {
+                Player.TakeDamage(Random.Range(minDamage, maxDamage));
+            }
+            Destroy(gameObject);
+        }
     }
 }

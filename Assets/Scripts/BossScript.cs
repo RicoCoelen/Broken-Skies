@@ -17,6 +17,15 @@ public class BossScript : MonoBehaviour
     Color origionalColor;
     public SpriteRenderer renderer;
 
+    // attack
+    public GameObject bullet;
+    public float accuracy;
+    private float direction;
+    public Transform shootPoint;
+    public Animator anim;
+    public float maxRange;
+    public int chance;
+
     // huidige status
     public State cState;
 
@@ -84,20 +93,42 @@ public class BossScript : MonoBehaviour
         vct.gameObject.SetActive(true);
         closeDoor.gameObject.SetActive(true);
         healthBar.transform.parent.gameObject.SetActive(true);
+        anim.SetBool("isIdle", true);
+        anim.SetBool("EnemyShoot", false);
+
+        cState = State.STAGE1;
     }
 
     void Stage1()
     {
+        // bullet rotation
+        direction += accuracy;
 
+        if (direction > maxRange || direction < 0)
+        {
+            direction = Random.Range(0, maxRange);
+        }
+
+        Quaternion rot = Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y, direction + 90);
+
+        // random chance
+        float r = Random.Range(0, chance);
+
+        if (r < 1)
+        {
+            Instantiate(bullet, shootPoint.position, rot);
+        }
+
+        // anim  and point shoot
+        anim.SetBool("isIdle", false);
+        anim.SetBool("EnemyShoot", true);
     }
 
     void Stage2()
     {
-
+        anim.SetBool("isIdle", false);
+        anim.SetBool("EnemyShoot", true);
     }
-
-
-
 
     public void TakeDamage(float amount)
     {
