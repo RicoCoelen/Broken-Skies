@@ -13,6 +13,7 @@ public class AttackScript : MonoBehaviour
 
     public Transform attackPos;
     public float attackRange;
+    public float lifestealAmount;
 
     public LayerMask Enemies;
 

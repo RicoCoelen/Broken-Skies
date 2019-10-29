@@ -176,7 +176,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
     m_FontSize: 194
     m_FontStyle: 1
     m_BestFit: 0
@@ -1877,7 +1877,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1933,8 +1933,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34.3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -50.6}
+  m_SizeDelta: {x: 232.11, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236168055
 MonoBehaviour:
@@ -1956,16 +1956,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
+    m_FontSize: 48
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 2.7
   m_Text: You Died!
 --- !u!222 &236168056
@@ -2260,7 +2260,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2864,9 +2864,9 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -2887,7 +2887,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4728,9 +4728,9 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4751,7 +4751,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5477,6 +5477,7 @@ MonoBehaviour:
   cooldownShoot: 0.1
   attackPos: {fileID: 959181617}
   attackRange: 0.61
+  lifestealAmount: 20
   Enemies:
     serializedVersion: 2
     m_Bits: 512
@@ -6001,8 +6002,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5999756, y: -50.1}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1.5999756, y: -66.44}
+  m_SizeDelta: {x: 304.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084889839
 MonoBehaviour:
@@ -6415,7 +6416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -366.6, y: -246.5}
+  m_AnchoredPosition: {x: -361.6, y: -246.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182485271
@@ -6437,7 +6438,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
     m_FontSize: 137
     m_FontStyle: 0
     m_BestFit: 0
@@ -6603,8 +6604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.6, y: 7.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1.6, y: 21.2}
+  m_SizeDelta: {x: 304.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185281994
 MonoBehaviour:
@@ -6943,7 +6944,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.6, y: -21.48}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 304.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229685123
 MonoBehaviour:
@@ -8737,9 +8738,9 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -8760,7 +8761,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9314,7 +9315,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -10115,9 +10116,9 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -10138,7 +10139,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10704,9 +10705,9 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -10727,7 +10728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10796,9 +10797,9 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 7.13
   m_FontSize: 160
-  m_FontStyle: 3
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -10819,7 +10820,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ac79a202689e62249b1b69d50b3f9b71, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11220,7 +11221,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 242.56, y: 162.16}
+  m_SizeDelta: {x: 426.6, y: 300.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1955448751
 MonoBehaviour:
