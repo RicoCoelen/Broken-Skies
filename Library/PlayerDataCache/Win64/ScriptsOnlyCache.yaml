@@ -36,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -517,7 +518,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: fab38bfd90353739aa97eaf271b04ade
+      Hash: a06fff690a3f1d8879b67c5202400a6c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyScript
@@ -607,7 +608,7 @@ ScriptsOnlyBuild:
     className: CinemachineCameraShaker
   - hash:
       serializedVersion: 2
-      Hash: ace41dc869c2549d8f1422bdc8f45ebc
+      Hash: 14558e154b8e2c5abcd6c04278ac6a58
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AttackScript
@@ -1048,4 +1049,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/EndScene.unity
-  playerPath: C:/Users/callr/Desktop/Game/GM - Rico Coelen.exe
+  playerPath: C:/Users/callr/Desktop/Broken Skies (Windows)/GM - Rico Coelen.exe
