@@ -185,7 +185,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3526349945792167206}
   m_LocalRotation: {x: -0.015707303, y: -0, z: -0, w: 0.9998767}
-  m_LocalPosition: {x: 0, y: 0, z: 4.2}
+  m_LocalPosition: {x: 0, y: 0, z: -0.019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3526349946809201346}
@@ -194,8 +194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.63, y: 2.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.59}
+  m_SizeDelta: {x: 1.33, y: 0.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3526349945792167226
 Canvas:
@@ -332,7 +332,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3526349946809201357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.1}
   m_Children:
   - {fileID: 3526349946983021474}
@@ -342,7 +342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.53, y: -1.73}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 24.4, y: 10.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3526349946809201347
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303af30731d9457439905de38efd6df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionRange: 5
+  DetectionRange: 6
   currentTarget: {fileID: 0}
   Player:
     serializedVersion: 2
@@ -531,10 +531,10 @@ MonoBehaviour:
   PlayerGO: {fileID: 0}
   attackPos: {fileID: 3526349947036556610}
   attackRange: 0.52
-  DamageStab: 10
+  DamageStab: 5
   anim: {fileID: 3526349947265625998}
   cooldownAttack: 1.5
-  shootRange: 30
+  shootRange: 25
   projectile: {fileID: 6145094756328667943, guid: 77f7ab78e39d4b74bba915cae80567b5,
     type: 3}
   cooldownShoot: 0.15
@@ -618,7 +618,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f1fad082f693aca4f9894801c80c3aac, type: 3}
-  m_Color: {r: 0, g: 0.24528301, b: 0.055063505, a: 1}
+  m_Color: {r: 0, g: 0.49056602, b: 0.10901472, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 3.7
+  speed: 0
   patrolSpeed: 1.5
   distance: 0
   knockBackForce: 500
@@ -704,6 +704,10 @@ MonoBehaviour:
   flashTime: 0.5
   renderer: {fileID: 3526349947265625997}
   effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  speedMin: 3
+  speedMax: 5
+  patrolSpeedMin: 1
+  patrolSpeedMax: 2.5
   cState: 0
   healthBar: {fileID: 3526349946809201347}
 --- !u!95 &3526349947265625998

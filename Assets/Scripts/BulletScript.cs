@@ -15,13 +15,12 @@ public class BulletScript : MonoBehaviour
     {
         rb.velocity = transform.right * speed;
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.tag)
+        switch (collision.gameObject.tag)
         {
             case "Boss":
-                BossScript Boss = collision.GetComponent<BossScript>();
+                BossScript Boss = collision.gameObject.GetComponent<BossScript>();
                 if (Boss != null)
                 {
                     Boss.TakeDamage(Random.Range(minDamage, maxDamage));
@@ -29,7 +28,7 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Enemies":
-                EnemyScript Enemy = collision.GetComponent<EnemyScript>();
+                EnemyScript Enemy = collision.gameObject.GetComponent<EnemyScript>();
                 if (Enemy != null)
                 {
                     Enemy.TakeDamage(Random.Range(minDamage, maxDamage));
@@ -38,7 +37,7 @@ public class BulletScript : MonoBehaviour
                 break;
 
             case "Kill":
-                
+
                 break;
             default:
                 Destroy(gameObject);

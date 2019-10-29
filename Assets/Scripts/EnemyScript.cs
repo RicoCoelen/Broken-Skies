@@ -34,6 +34,12 @@ public class EnemyScript : MonoBehaviour
     public SpriteRenderer renderer;
     public GameObject effect;
 
+    // random speeds
+    public float speedMin;
+    public float speedMax;
+    public float patrolSpeedMin;
+    public float patrolSpeedMax;
+
     // huidige status
     public State cState;
 
@@ -51,6 +57,9 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = Random.Range(speedMin, speedMax);
+        patrolSpeed = Random.Range(patrolSpeedMin, patrolSpeedMax);
+
         healthBar.value = health;
         healthBar.maxValue = health;
 
@@ -167,7 +176,15 @@ public class EnemyScript : MonoBehaviour
                 facingRight = false;
                 speed = -Mathf.Abs(speed);
             }
-            anim.SetBool("isRunning", true);
+
+            if (isGrounded == false)
+            {
+                anim.SetBool("isRunning", false);
+            }
+            else
+            {
+                anim.SetBool("isRunning", true);
+            }
         }
     }
 
@@ -183,10 +200,12 @@ public class EnemyScript : MonoBehaviour
         if (facingRight == true)
         {
             yRotation = 0;
+            healthBar.transform.parent.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
             yRotation = 180;
+            healthBar.transform.parent.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         // rotate y axis
@@ -209,6 +228,7 @@ public class EnemyScript : MonoBehaviour
     {
         // add knockback
         Vector3 moveDirection = transform.position - player.transform.position;
+        moveDirection.y = 0;
         rb.AddForce(moveDirection.normalized * knockBackForce);
 
         // remove health

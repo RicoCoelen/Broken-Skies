@@ -51,6 +51,7 @@ public class AttackScript : MonoBehaviour
                         vct.GetComponent<CinemachineCameraShaker>().ShakeCamera(0.1f);
                     }
                     enemiesToDamage[i].GetComponent<EnemyScript>().TakeDamage(DamageStab);
+                    GetComponentInParent<HealthScript>().GiveHealth(lifestealAmount);
                 }         
             }
             timeToAttack = cooldownAttack;

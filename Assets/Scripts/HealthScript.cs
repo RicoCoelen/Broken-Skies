@@ -41,6 +41,12 @@ public class HealthScript : MonoBehaviour
             manager.GetComponent<GameManager>().GameOver();
         }
     }
+    public void GiveHealth(float amount)
+    {
+        health += amount;
+        FlashGreen();
+        healthBar.value = Mathf.Clamp(health, 0, 100f);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,6 +67,11 @@ public class HealthScript : MonoBehaviour
     void FlashRed()
     {
         renderer.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("ResetColor", flashTime);
+    }
+    void FlashGreen()
+    {
+        renderer.GetComponent<SpriteRenderer>().color = Color.green;
         Invoke("ResetColor", flashTime);
     }
 

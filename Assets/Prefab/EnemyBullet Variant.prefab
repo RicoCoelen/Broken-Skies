@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 6145094756328667944}
   minDamage: 0
-  maxDamage: 35
+  maxDamage: 25
 --- !u!1001 &2896490243444172574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,11 +123,6 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9040313902923652149, guid: d537a2c09f7ad994a978914f5df785a7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9040313902923652146, guid: d537a2c09f7ad994a978914f5df785a7,
         type: 3}
       propertyPath: speed
@@ -137,6 +132,16 @@ PrefabInstance:
         type: 3}
       propertyPath: maxDamage
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055501348339112920, guid: d537a2c09f7ad994a978914f5df785a7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040313902923652149, guid: d537a2c09f7ad994a978914f5df785a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9040313902923652149, guid: d537a2c09f7ad994a978914f5df785a7, type: 3}

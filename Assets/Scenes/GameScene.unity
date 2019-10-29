@@ -5455,7 +5455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959181616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.913, y: -0.43, z: 0.02}
+  m_LocalPosition: {x: 0.65, y: -0.43, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 139918817}
@@ -5477,11 +5477,11 @@ MonoBehaviour:
   cooldownShoot: 0.1
   attackPos: {fileID: 959181617}
   attackRange: 0.61
-  lifestealAmount: 20
+  lifestealAmount: 10
   Enemies:
     serializedVersion: 2
     m_Bits: 512
-  DamageStab: 20
+  DamageStab: 35
   anim: {fileID: 139918821}
   projectile: {fileID: 9040313902923652153, guid: d537a2c09f7ad994a978914f5df785a7,
     type: 3}
